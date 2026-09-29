@@ -1,0 +1,58 @@
+/* 1. Estilos generales para todo el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;       /* Tipo de letra limpia */
+    background-color: #30308b;            /* Color de fondo gris claro */
+    color: #333333;                       /* Color del texto principal */
+    margin: 0;                            /* Elimina márgenes predeterminados */
+    padding: 20px;                        /* Espacio interno alrededor de la página */
+}
+
+/* 2. Estilos para el encabezado principal */
+h1 {
+    color: #d5d5db;                       /* Color azul oscuro */
+    text-align: center;                   /* Centra el título */
+    margin-bottom: 20px;                  /* Espacio debajo del título */
+}
+
+h2 {
+    color: #dedee9;                       /* Color azul oscuro */
+    text-align: center;                   /* Centra el título */
+    margin-bottom: 20px;                  /* Espacio debajo del título */
+}
+
+/* 3. Estilos para los párrafos de texto */
+p {
+    font-size: 16px;                      /* Tamaño de la letra */
+    line-height: 1.6;                     /* Espacio entre líneas para leer mejor */
+}
+
+img{
+    height: 215px;
+    width: 200px;      
+}
+
+/* 4. Estilos para una tarjeta o contenedor contenedor */
+.contenedor {
+    background-color: #ffffff;            /* Fondo blanco */
+    max-width: 600px;                     /* Ancho máximo del cuadro */
+    margin: 0 auto;                       /* Centra el contenedor en la pantalla */
+    padding: 20px;                        /* Espacio dentro de la tarjeta */
+    border-radius: 8px;                   /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);/* Sombra suave para dar relieve */
+}
+
+/* 5. Estilos para un botón interactivo */
+.boton {
+    display: inline-block;
+    background-color: #3498db;            /* Color de fondo azul */
+    color: white;                         /* Texto en color blanco */
+    padding: 10px 20px;                   /* Tamaño del botón */
+    text-decoration: none;                /* Quita el subrayado si es un enlace */
+    border-radius: 5px;                   /* Bordes un poco redondeados */
+    font-weight: bold;                    /* Texto en negrita */
+}
+
+/* Efecto visual cuando pasas el cursor sobre el botón */
+.boton:hover {
+    background-color: #2980b9;            /* Azul un poco más oscuro */
+}
