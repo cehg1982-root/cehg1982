@@ -4,7 +4,7 @@
 		<script src="eventos.js"></script>
 		<H1>Pagina de Cristhian Hernandez<H1>
 	</head>
-	<body>
+	<body onload="displayDate()">
 		<H2>Soy el docente cristhian Hernandez de fundamentos de programacion Web<H2>
 		<p id="p1" onmouseover="cambiarTexto1()">mi primer texto original</p>
 		<p id="p2" onclick="cambiarTexto2()">Cali - Colombia</p>
@@ -16,6 +16,10 @@
 		 title="YouTube video player" frameborder="0" 
 		 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
 		 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		 <br><br>
 		 <button class="boton" onclick="llamarMiPagina1()">Pagina1</button>
+		 <button class="boton" onclick="llamarFormulario()">Formulario</button>
+		 <button class="boton" onclick="messageOk()">Mensaje Ok</button>
+		 <p>La fecha y hora actual es: <span id="fecha"></span></p>		
 	</body>
 </html>

@@ -26,9 +26,16 @@ p {
     line-height: 1.6;                     /* Espacio entre líneas para leer mejor */
 }
 
+/* 2. Estilos para el encabezado principal */
+a {
+    color: #d5d5db;                       /* Color azul oscuro */
+    text-align: left;                   /* Centra el título */
+    margin-bottom: 20px;                  /* Espacio debajo del título */
+}
+
 img{
     height: 215px;
-    width: 200px;      
+    width: 190px;      
 }
 
 /* 4. Estilos para una tarjeta o contenedor contenedor */
