@@ -1,24 +1,48 @@
-<html>
-	<head>
-		<script src="eventos.js"></script>
-		<link rel="stylesheet" href="hojaEstilo.css">
-		<H1>Formulario <H1>
-	</head>
-	<body>
-        <form action="#" onsubmit="validacionFormulario(); return false;">
-		<div>
-			<label for="fname">Usuario: </label>
-			<input id="fname" type="text" />
-		</div>
-		<div>
-			<label for="lname">Contraseña: </label>
-			<input id="lname" type="text" />
-		</div>
-		<br>
-		<div>
-			<input class="boton" id="submit" type="submit" />			
-		</div>
-		</form>
-		<a href="index.html">inicio</a>
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de acceso</title>
+	<script src="eventos.js"></script>
+	<link rel="stylesheet" href="hojaEstilo.css">
+</head>
+
+<body>
+
+    <h1>Formulario</h1>
+
+    <form id="loginForm">
+
+        <h2>
+            Usuario:
+            <input type="email" id="usuario"
+                   placeholder="Correo electrónico" required>
+        </h2>
+
+        <h2>
+            Contraseña:
+            <input type="password" id="password"
+                   placeholder="Contraseña" required>
+        </h2>
+
+        <br>
+
+        <button type="submit" id="btnEnviar">
+            Enviar
+        </button>
+
+    </form>
+
+    <p id="mensaje"></p>
+
+    <!-- Librería Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Nuestro archivo JavaScript -->
+    <script src="script.js"></script>
+
+</body>
 </html>
+
