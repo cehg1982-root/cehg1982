@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bienvenido - AUNAR</title>
+
+    <style>
+        body {
+            background: #30358e;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+
+        header {
+            background: #25296f;
+            padding: 25px;
+        }
+
+        h1 {
+            margin: 10px;
+        }
+
+        .contenedor {
+            margin: 60px auto;
+            padding: 30px;
+            max-width: 650px;
+            background: white;
+            color: #30358e;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px #20245a;
+        }
+
+        .tarjetas {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tarjeta {
+            background: #eef0ff;
+            padding: 20px;
+            width: 150px;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>AUNAR</h1>
+        <p>Plataforma académica</p>
+    </header>
+
+    <main class="contenedor">
+
+        <h2>¡Bienvenido!</h2>
+
+        <p>Has ingresado correctamente a la plataforma.</p>
+
+        <h3 id="nombreUsuario"></h3>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <h3>📚</h3>
+                <p>Mis cursos</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>📝</h3>
+                <p>Actividades</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>💻</h3>
+                <p>Recursos</p>
+            </div>
+
+        </div>
+
+        <button onclick="cerrarSesion()">
+            Cerrar sesión
+        </button>
+
+    </main>
+
+    <script>
+        // Mostrar usuario de la sesión provisional
+        const usuario = sessionStorage.getItem("usuarioAunar");
+
+        if (!usuario) {
+            window.location.replace("formulario.html");
+        } else {
+            document.getElementById("nombreUsuario").textContent =
+                "Usuario: " + usuario;
+        }
+
+        // Cerrar sesión
+        function cerrarSesion() {
+            sessionStorage.removeItem("usuarioAunar");
+            window.location.replace("formulario.html");
+        }
+    </script>
+
+</body>
+</html>
