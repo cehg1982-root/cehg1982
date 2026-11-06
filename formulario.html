@@ -11,20 +11,28 @@
 
 <body>
 
-    <h1>Formulario</h1>
+    <h1>Formulario AUNAR</h1>
 
     <form id="loginForm">
 
         <h2>
             Usuario:
-            <input type="email" id="usuario"
-                   placeholder="Correo electrónico" required>
+            <input
+                type="text"
+                id="usuario"
+                placeholder="Ingrese su usuario"
+                autocomplete="username"
+                required>
         </h2>
 
         <h2>
             Contraseña:
-            <input type="password" id="password"
-                   placeholder="Contraseña" required>
+            <input
+                type="password"
+                id="password"
+                placeholder="Ingrese su contraseña"
+                autocomplete="current-password"
+                required>
         </h2>
 
         <br>
@@ -35,14 +43,13 @@
 
     </form>
 
-    <p id="mensaje"></p>
+    <p id="mensaje" role="status"></p>
 
-    <!-- Librería Supabase -->
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Nuestro archivo JavaScript -->
+    <!-- Archivo JavaScript -->
     <script src="script.js"></script>
 
 </body>
 </html>
-

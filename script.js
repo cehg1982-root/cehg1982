@@ -1,10 +1,8 @@
-
-// ===================================
+// ======================================
 // 1. CONFIGURACIÓN DE SUPABASE
-// ===================================
+// ======================================
 
 const SUPABASE_URL = "https://hypxybgvxvpwfqflijty.supabase.co";
-
 const SUPABASE_KEY = "sb_publishable_x6A2XiGzM9F2Qlk9xwBUvA_UK3HoJJz";
 
 const sb = window.supabase.createClient(
@@ -13,58 +11,81 @@ const sb = window.supabase.createClient(
 );
 
 
-// ===================================
-// 2. VALIDACIÓN DEL FORMULARIO
-// ===================================
+// ======================================
+// 2. VALIDAR FORMULARIO
+// ======================================
 
 document.getElementById("loginForm")
 .addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
-    const email = document.getElementById("usuario").value;
+    const usuario = document.getElementById("usuario").value.trim();
     const password = document.getElementById("password").value;
 
     const mensaje = document.getElementById("mensaje");
     const boton = document.getElementById("btnEnviar");
 
-    mensaje.textContent = "Validando usuario...";
-    boton.disabled = true;
-
-    // ===================================
-    // 3. AUTENTICACIÓN EN SUPABASE
-    // ===================================
-
-    const { data, error } = await sb.auth.signInWithPassword({
-        email: email,
-        password: password
-    });
-
-    boton.disabled = false;
-
-    // ===================================
-    // 4. VALIDAR RESPUESTA
-    // ===================================
-
-    if (error) {
-
-        mensaje.textContent =
-            "Usuario o contraseña incorrectos.";
-
-        mensaje.style.color = "#ffaaaa";
-
+    if (!usuario || !password) {
+        mensaje.textContent = "Completa todos los campos.";
         return;
     }
 
-    mensaje.textContent = "¡Acceso autorizado!";
-    mensaje.style.color = "#90ee90";
+    boton.disabled = true;
+    mensaje.textContent = "Validando credenciales...";
+    mensaje.style.color = "white";
 
-    console.log("Usuario autenticado:", data.user);
+    try {
 
-    // ===================================
-    // 5. REDIRECCIONAR
-    // ===================================
+        // ======================================
+        // 3. CONSULTAR EDGE FUNCTION
+        // ======================================
 
-    window.location.href = "bienvenido.html";
+        const { data, error } = await sb.functions.invoke(
+            "login-aunar",
+            {
+                body: {
+                    usuario: usuario,
+                    password: password
+                }
+            }
+        );
+
+        if (error || !data || !data.success) {
+
+            mensaje.textContent =
+                data?.message || "Usuario o contraseña incorrectos.";
+
+            mensaje.style.color = "#ffaaaa";
+            return;
+        }
+
+        // ======================================
+        // 4. ACCESO AUTORIZADO
+        // ======================================
+
+        mensaje.textContent = "¡Bienvenido a AUNAR!";
+        mensaje.style.color = "#90ee90";
+
+        // Guardar solamente el nombre de usuario
+        sessionStorage.setItem("usuarioAunar", usuario);
+
+        // Redireccionar
+        window.location.href = "bienvenido.html";
+
+    } catch (error) {
+
+        console.error("Error de autenticación:", error);
+
+        mensaje.textContent =
+            "No fue posible conectar con el servidor.";
+
+        mensaje.style.color = "#ffaaaa";
+
+    } finally {
+
+        boton.disabled = false;
+
+    }
 
 });
