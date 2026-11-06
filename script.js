@@ -3,11 +3,11 @@
 // ======================================
 
 const SUPABASE_URL = "https://hypxybgvxvpwfqflijty.supabase.co";
-const SUPABASE_KEY = "sb_publishable_x6A2XiGzM9F2Qlk9xwBUvA_UK3HoJJz";
+const SUPABASE_PUBLISHABLE_KEYS = "sb_publishable_x6A2XiGzM9F2Qlk9xwBUvA_UK3HoJJz";
 
 const sb = window.supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_KEY
+    SUPABASE_PUBLISHABLE_KEYS
 );
 
 
